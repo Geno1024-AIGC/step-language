@@ -4,6 +4,7 @@ __version__ = "0.1.0"
 
 from .model import Block, Document, Step, StepSyntaxError
 from .parser import parse, parse_file
+from .render import render, render_file
 
 __all__ = [
     "__version__",
@@ -13,4 +14,6 @@ __all__ = [
     "StepSyntaxError",
     "parse",
     "parse_file",
+    "render",
+    "render_file",
 ]
