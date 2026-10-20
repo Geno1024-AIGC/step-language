@@ -30,6 +30,12 @@ jobs:
       - name: Run tests
         run: python -m unittest discover -s tests -t .
 
+      - name: Test browser compiler
+        run: |
+          node --check web/preview/compiler.js
+          node --check web/preview/preview.js
+          node web/preview/test_compiler.js
+
       - name: Build site
         run: |
           rm -rf _site
@@ -38,6 +44,10 @@ jobs:
           cp -R examples/images _site/examples/repair-computer/images
           cp -R examples/images _site/examples/reinstall-windows/images
           cp -R web/. _site/
+          mkdir -p _site/preview/assets _site/preview/samples _site/preview/images
+          cp steplang/assets/app.css steplang/assets/app.js _site/preview/assets/
+          cp examples/repair-computer.step examples/reinstall-windows.step _site/preview/samples/
+          cp -R examples/images/. _site/preview/images/
           touch _site/.nojekyll
 
       - name: Configure Pages
