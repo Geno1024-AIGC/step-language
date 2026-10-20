@@ -35,7 +35,9 @@ jobs:
           rm -rf _site
           mkdir -p _site/example
           python -m steplang build examples/repair-computer.step -o _site/example/index.html
+          python -m steplang build examples/reinstall-windows.step -o _site/reinstall-windows/index.html
           cp -R examples/images _site/example/images
+          cp -R examples/images _site/reinstall-windows/images
           cp -R web/. _site/
           touch _site/.nojekyll
 
