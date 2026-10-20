@@ -21,6 +21,7 @@
       <a href="#features">功能</a>
       <a href="#quickstart">快速开始</a>
       <a href="#syntax">语法</a>
+      <a href="preview/">在线预览</a>
       <a href="#example">示例</a>
       <a class="gh-link" href="https://github.com/Geno1024-AIGC/step-language" target="_blank" rel="noreferrer">
         GitHub
@@ -41,8 +42,8 @@
       <h1>把复杂流程，<br><span>变成一步一步的网页。</span></h1>
       <p class="lead">用纯文本写步骤，生成可离线使用、适配手机、带分支与进度的单文件指南。没有框架，没有外部字体，也没有运行时依赖。</p>
       <div class="actions">
-        <a class="btn primary" href="examples/repair-computer/">打开交互示例 <span aria-hidden="true">→</span></a>
-        <a class="btn" href="#quickstart">快速开始</a>
+        <a class="btn primary" href="preview/">在线预览 .step <span aria-hidden="true">→</span></a>
+        <a class="btn" href="examples/repair-computer/">打开交互示例</a>
       </div>
       <ul class="stats" aria-label="示例数据">
         <li><strong>54 KB</strong><span>单文件 HTML</span></li>
@@ -173,6 +174,25 @@
 <span class="prompt">$</span> <span class="cmd">python3 -m steplang serve examples</span></code></pre>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="preview">
+    <div class="wrap preview-band">
+      <div class="preview-band-copy">
+        <p class="eyebrow">Browser preview</p>
+        <h2>不想装 Python？<br><span>把文件拖进浏览器。</span></h2>
+        <p>打开在线预览，拖入或选择一个 <code>.step</code> 文件，立刻生成完整页面。分支、勾选进度、主题和打印都可以直接测试，文件不会上传到服务器。</p>
+        <div class="actions">
+          <a class="btn primary" href="preview/">打开在线预览 <span aria-hidden="true">→</span></a>
+          <a class="btn" href="https://github.com/Geno1024-AIGC/step-language/blob/master/web/preview/compiler.js">查看浏览器编译器</a>
+        </div>
+      </div>
+      <ol class="preview-band-steps">
+        <li><span>01</span><div><strong>拖入 .step</strong><p>也可以直接选择文件，或在编辑器里粘贴源码。</p></div></li>
+        <li><span>02</span><div><strong>浏览器即时编译</strong><p>沿用同一套语法规则，生成完整 HTML 与交互脚本。</p></div></li>
+        <li><span>03</span><div><strong>预览或下载</strong><p>检查分支和进度，确认后下载生成的页面。</p></div></li>
+      </ol>
     </div>
   </section>
 
