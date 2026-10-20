@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>step-language · 把复杂流程变成一步一步的网页</title>
+<meta name="description" content="一个小型 DSL 与静态站点编译器：用纯文本写步骤，生成可离线使用、适配手机、带分支与进度的单文件指南。">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="./">
+      <span class="logo" aria-hidden="true">S</span>
+      <span>step-language</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#features">功能</a>
+      <a href="#quickstart">快速开始</a>
+      <a href="#syntax">语法</a>
+      <a href="example/">示例</a>
+      <a class="gh-link" href="https://github.com/Geno1024-AIGC/step-language" target="_blank" rel="noreferrer">
+        GitHub
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="theme-label">跟随系统</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow">DSL · static site · zero runtime deps</p>
+      <h1>把复杂流程，<br><span>变成一步一步的网页。</span></h1>
+      <p class="lead">用纯文本写步骤，生成可离线使用、适配手机、带分支与进度的单文件指南。没有框架，没有外部字体，也没有运行时依赖。</p>
+      <div class="actions">
+        <a class="btn primary" href="example/">打开交互示例 <span aria-hidden="true">→</span></a>
+        <a class="btn" href="#quickstart">快速开始</a>
+      </div>
+      <ul class="stats" aria-label="示例数据">
+        <li><strong>54 KB</strong><span>单文件 HTML</span></li>
+        <li><strong>14.4 KB</strong><span>gzip 传输</span></li>
+        <li><strong>0</strong><span>第三方依赖</span></li>
+      </ul>
+    </div>
+
+    <div class="hero-demo" aria-hidden="true">
+      <div class="mock">
+        <div class="mock-top">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="mock-progress">2 / 8</span>
+        </div>
+        <div class="mock-body">
+          <p class="mock-kicker">第 2 步 · 供电</p>
+          <h3>检查供电链路</h3>
+          <p>先确认电从哪里断掉。</p>
+          <ul class="mock-check">
+            <li class="done">关闭电源并拔掉电源线</li>
+            <li>换一个已知正常的插座</li>
+            <li>确认电源开关处于 I</li>
+          </ul>
+          <div class="mock-choice">
+            <span>按下电源键后有反应吗？</span>
+            <button type="button" class="on">有反应</button>
+            <button type="button">无反应</button>
+          </div>
+          <div class="mock-footer">
+            <span>上一步</span>
+            <span class="next">下一步 →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Capabilities</p>
+        <h2>写一次，处处能看。</h2>
+        <p>为维修、安装、排障、教学和现场操作设计。生成结果是一个静态文件，复制、托管、发链接都很简单。</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="6" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M8.2 6h7.6M7 8.1l3.8 7.8M17 8.1l-3.8 7.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <h3>分支与判断</h3>
+          <p>用 <code>?</code> 提问题，用 <code>*</code> 把不同答案带到不同步骤。流程可以按现场情况改变。</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="4" y="3.5" width="16" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="m8 12 2.6 2.6L16 9" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>进度留在本机</h3>
+          <p>勾选状态写入 <code>localStorage</code>，刷新或关闭页面后仍能继续。更新版本号即可重置。</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10 18.5h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          </span>
+          <h3>手机与桌面</h3>
+          <p>桌面端侧栏目录，手机端抽屉导航，键盘左右键也能翻页。布局会跟随屏幕自动调整。</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M13 3 5.5 13.5H11L10 21l7.5-10.5H12L13 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>低流量</h3>
+          <p>示例页面 54 KB，gzip 后约 14.4 KB。图片懒加载，首屏不会下载无关图片。</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><circle cx="12" cy="12" r="3.4" fill="none" stroke="currentColor" stroke-width="1.7"/></svg>
+          </span>
+          <h3>阅读与打印</h3>
+          <p>自动、浅色、深色三种主题。打印时展开全部步骤，适合贴在工位或带进现场。</p>
+        </article>
+        <article class="card">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m4.5 7.8 7.5 4.3 7.5-4.3M12 12.1V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>零依赖</h3>
+          <p>编译器只用 Python 标准库，页面只用原生 CSS/JS。没有 CDN、追踪脚本或外部字体。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="quickstart">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Quick start</p>
+        <h2>三步，从文本到网页。</h2>
+        <p>只需要 Python 3.10+。先在本地校验，再构建单文件，或者启动一个会实时编译的预览服务。</p>
+      </div>
+      <div class="quick-grid">
+        <ol class="steps-list">
+          <li>
+            <span class="num">01</span>
+            <div><strong>写一个 .step 文件</strong><p>用元数据描述标题和版本，用 <code>==</code> 划分步骤，按需加入勾选项、图片或判断分支。</p></div>
+          </li>
+          <li>
+            <span class="num">02</span>
+            <div><strong>校验流程</strong><p><code>check --strict</code> 会捕获重复 ID、未知跳转和不可达步骤，避免发布断掉的流程。</p></div>
+          </li>
+          <li>
+            <span class="num">03</span>
+            <div><strong>构建或预览</strong><p>构建得到单个 HTML 文件；开发时用 <code>serve</code> 直接打开示例目录，修改后自动重新编译。</p></div>
+          </li>
+        </ol>
+
+        <div class="terminal">
+          <div class="terminal-bar">
+            <span>terminal</span>
+            <button class="copy-btn" type="button" data-copy="#quick-code">复制</button>
+          </div>
+          <pre id="quick-code"><code><span class="dim"># 校验并检查警告</span>
+<span class="prompt">$</span> <span class="cmd">python3 -m steplang check examples/repair-computer.step --strict</span>
+
+<span class="dim"># 生成一个独立 HTML 文件</span>
+<span class="prompt">$</span> <span class="cmd">python3 -m steplang build examples/repair-computer.step -o dist/repair.html</span>
+
+<span class="dim"># 本地预览 http://127.0.0.1:8000/</span>
+<span class="prompt">$</span> <span class="cmd">python3 -m steplang serve examples</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="syntax">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Syntax</p>
+        <h2>语法保持小，表达力够用。</h2>
+        <p>没有嵌套 DSL，也没有配置文件。一个文件就是一篇流程，读起来接近普通文档。</p>
+      </div>
+      <div class="syntax-grid">
+        <table class="syntax-table">
+          <thead><tr><th>结构</th><th>写法</th></tr></thead>
+          <tbody>
+            <tr><td>元数据</td><td><code>@title</code> <code>@id</code> <code>@version</code> <code>@lang</code> <code>@accent</code> <code>@start</code></td></tr>
+            <tr><td>步骤</td><td><code>== step-id | 标题</code></td></tr>
+            <tr><td>列表 / 勾选</td><td><code>- 项目</code> <code>- [ ] 待办</code> <code>- [x] 完成</code></td></tr>
+            <tr><td>提示 / 警告</td><td><code>&gt; 提示</code> <code>! 警告</code></td></tr>
+            <tr><td>时间 / 图片</td><td><code>@time 约 5 分钟</code> <code>@img path | 说明</code></td></tr>
+            <tr><td>问题 / 分支</td><td><code>? 问题</code> <code>* 选项 -&gt; 步骤</code> <code>* 完成 -&gt; done</code></td></tr>
+            <tr><td>跳转</td><td><code>-&gt; 下一步</code>（不写则按顺序）</td></tr>
+            <tr><td>行内 / 代码</td><td><code>**粗体**</code> <code>`代码`</code> 围栏代码块</td></tr>
+          </tbody>
+        </table>
+
+        <div class="code-card">
+          <div class="code-card-head">
+            <span>repair.step</span>
+            <span class="code-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+          <pre><code><span class="tag">@title</span> 电脑无法开机排查
+<span class="tag">@id</span> repair-computer
+<span class="tag">@version</span> 1.0.0
+<span class="tag">@lang</span> zh-CN
+<span class="tag">@start</span> safety
+
+<span class="tag">== safety</span> | 安全准备
+- [ ] 关闭电源并拔掉电源线
+- [ ] 拔掉所有外设
+<span class="comment">&gt; 拆机前先释放身上的静电。</span>
+<span class="comment">! 闻到焦味时停止并送修。</span>
+<span class="tag">-&gt;</span> power
+
+<span class="tag">== power</span> | 检查供电链路
+<span class="str">? 按下电源键后有反应吗？</span>
+* 有反应 <span class="tag">-&gt;</span> display
+* 完全无反应 <span class="tag">-&gt;</span> cable</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="example">
+    <div class="wrap">
+      <div class="example-card">
+        <div>
+          <p class="eyebrow">Live example</p>
+          <h2>电脑无法开机排查</h2>
+          <p>8 个步骤，从安全准备、供电链路、显示输出一路排查到内部连接与送修建议。包含分支、勾选项、图片和代码提示。</p>
+          <a class="btn primary" href="example/">打开交互式示例 <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="tags" aria-label="示例标签">
+          <span class="tag">8 个步骤</span>
+          <span class="tag">分支流程</span>
+          <span class="tag">localStorage</span>
+          <span class="tag">响应式</span>
+          <span class="tag">可打印</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>step-language · 由 Python 标准库构建 · 页面无外部依赖</span>
+    <div class="footer-links">
+      <a href="https://github.com/Geno1024-AIGC/step-language">GitHub</a>
+      <a href="https://github.com/Geno1024-AIGC/step-language/blob/master/README.zh-CN.md">中文 README</a>
+      <a href="https://github.com/Geno1024-AIGC/step-language/blob/master/README.md">English README</a>
+      <span data-year>2026</span>
+    </div>
+  </div>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
