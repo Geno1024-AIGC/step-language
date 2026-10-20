@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360" role="img" aria-labelledby="title desc">
+  <title id="title">主板供电接口示意</title>
+  <desc id="desc">示意图标出主板 24 pin 供电、CPU 8 pin 供电、内存插槽和显卡插槽的大致位置。</desc>
+  <rect width="640" height="360" fill="#eef2f7"/>
+  <rect x="70" y="50" width="500" height="260" rx="14" fill="#2f7d5d" stroke="#1f5a43" stroke-width="3"/>
+  <rect x="96" y="76" width="120" height="44" rx="5" fill="#1d2833"/>
+  <text x="156" y="103" fill="#f4f7fb" font-family="sans-serif" font-size="13" text-anchor="middle">24 pin 供电</text>
+  <rect x="108" y="146" width="26" height="132" rx="4" fill="#d8e2ec" stroke="#9db0c3"/>
+  <rect x="144" y="146" width="26" height="132" rx="4" fill="#d8e2ec" stroke="#9db0c3"/>
+  <rect x="180" y="146" width="26" height="132" rx="4" fill="#d8e2ec" stroke="#9db0c3"/>
+  <text x="157" y="297" fill="#eaf2ee" font-family="sans-serif" font-size="12" text-anchor="middle">内存插槽</text>
+  <rect x="248" y="76" width="92" height="36" rx="5" fill="#1d2833"/>
+  <text x="294" y="99" fill="#f4f7fb" font-family="sans-serif" font-size="12" text-anchor="middle">CPU 8 pin</text>
+  <rect x="252" y="130" width="84" height="84" rx="6" fill="#c8d5e2" stroke="#91a5b8"/>
+  <text x="294" y="177" fill="#33414f" font-family="sans-serif" font-size="12" text-anchor="middle">CPU</text>
+  <rect x="378" y="170" width="150" height="26" rx="4" fill="#1d2833"/>
+  <text x="453" y="188" fill="#f4f7fb" font-family="sans-serif" font-size="12" text-anchor="middle">显卡插槽</text>
+  <rect x="392" y="220" width="112" height="54" rx="5" fill="#c8d5e2" stroke="#91a5b8"/>
+  <text x="448" y="252" fill="#33414f" font-family="sans-serif" font-size="12" text-anchor="middle">芯片组</text>
+  <path d="M436 96h84" stroke="#374b5e" stroke-width="5" stroke-linecap="round"/>
+  <text x="478" y="82" fill="#374b5e" font-family="sans-serif" font-size="12" text-anchor="middle">电源</text>
+  <rect x="96" y="326" width="448" height="1" fill="#c3cfda"/>
+  <text x="70" y="345" fill="#526273" font-family="sans-serif" font-size="12">示意图仅用于说明位置，实际接口以主板手册为准。</text>
+</svg>
