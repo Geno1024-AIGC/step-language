@@ -3,7 +3,7 @@
 Turn a plain-text procedure into a small, interactive guide that works on a phone and offline.
 
 [Live site](https://geno1024-aigc.github.io/step-language/) ·
-[Interactive example](https://geno1024-aigc.github.io/step-language/example/) ·
+[Interactive example](https://geno1024-aigc.github.io/step-language/examples/repair-computer/) ·
 [中文说明](README.zh-CN.md)
 
 `step-language` is a tiny DSL and static-site compiler for step-by-step procedures. Write a
@@ -99,12 +99,12 @@ Record the model, symptoms, and steps already tried.
 ```
 
 Run `python3 -m steplang guide` for the full quick reference, or open the
-[interactive example](https://geno1024-aigc.github.io/step-language/example/).
+[interactive example](https://geno1024-aigc.github.io/step-language/examples/repair-computer/).
 
 ## Examples
 
-- [Repair a PC that will not start](https://geno1024-aigc.github.io/step-language/example/)
-- [Reinstall Windows](https://geno1024-aigc.github.io/step-language/reinstall-windows/)
+- [Repair a PC that will not start](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)
+- [Reinstall Windows](https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/)
 
 Both pages are generated from the `.step` files in `examples/`.
 
@@ -140,8 +140,8 @@ The `Deploy Pages` workflow in `.github/workflows/pages.yml` runs the test suite
 examples, copies the landing page from `web/`, and deploys `_site/` with GitHub Actions.
 
 - Landing page: <https://geno1024-aigc.github.io/step-language/>
-- PC repair example: <https://geno1024-aigc.github.io/step-language/example/>
-- Windows reinstall example: <https://geno1024-aigc.github.io/step-language/reinstall-windows/>
+- PC repair example: <https://geno1024-aigc.github.io/step-language/examples/repair-computer/>
+- Windows reinstall example: <https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/>
 
 For a fork, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** once,
 then push to `master`.

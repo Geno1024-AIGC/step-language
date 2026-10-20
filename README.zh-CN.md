@@ -3,7 +3,7 @@
 把纯文本流程，编译成一个手机能用、离线也能看的交互式指南。
 
 [在线介绍页](https://geno1024-aigc.github.io/step-language/) ·
-[交互示例](https://geno1024-aigc.github.io/step-language/example/) ·
+[交互示例](https://geno1024-aigc.github.io/step-language/examples/repair-computer/) ·
 [English](README.md)
 
 `step-language` 是一个用于分步流程的小型 DSL 与静态站点编译器。用 `.step` 文件描述步骤，
@@ -91,12 +91,12 @@ steplang guide
 ```
 
 运行 `python3 -m steplang guide` 查看完整速查表，或直接打开
-[交互示例](https://geno1024-aigc.github.io/step-language/example/)。
+[交互示例](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)。
 
 ## 示例
 
-- [电脑无法开机排查](https://geno1024-aigc.github.io/step-language/example/)
-- [重装 Windows 系统](https://geno1024-aigc.github.io/step-language/reinstall-windows/)
+- [电脑无法开机排查](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)
+- [重装 Windows 系统](https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/)
 
 两个页面都由 `examples/` 中的 `.step` 文件生成。
 
@@ -132,8 +132,8 @@ steplang guide
 `web/` 中的介绍页，并通过 GitHub Actions 部署 `_site/`。
 
 - 介绍页：<https://geno1024-aigc.github.io/step-language/>
-- 电脑排查示例：<https://geno1024-aigc.github.io/step-language/example/>
-- 重装 Windows 示例：<https://geno1024-aigc.github.io/step-language/reinstall-windows/>
+- 电脑排查示例：<https://geno1024-aigc.github.io/step-language/examples/repair-computer/>
+- 重装 Windows 示例：<https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/>
 
 如果 fork 了本项目，需要在 **Settings → Pages → Build and deployment → Source** 中选择一次
 **GitHub Actions**，然后推送到 `master`。
