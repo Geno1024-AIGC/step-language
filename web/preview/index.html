@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>在线预览 · step-language</title>
+<meta name="description" content="在浏览器里打开、编辑或拖入 .step 文件，即时生成可交互的步骤指南。文件不会上传到服务器。">
+<meta name="theme-color" content="#2563eb">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="preview.css">
+</head>
+<body class="preview-page">
+<a class="skip-link" href="#main">跳到正文</a>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="../">
+      <span class="logo" aria-hidden="true">S</span>
+      <span>step-language</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="../#features">功能</a>
+      <a href="../#quickstart">快速开始</a>
+      <a href="../#syntax">语法</a>
+      <a href="../#example">示例</a>
+      <a class="active" href="./">在线预览</a>
+      <a class="gh-link" href="https://github.com/Geno1024-AIGC/step-language" target="_blank" rel="noreferrer">
+        GitHub
+        <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="切换主题">
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="10" cy="10" r="3.4" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.3 4.3l1.4 1.4M14.3 14.3l1.4 1.4M15.7 4.3l-1.4 1.4M5.7 14.3l-1.4 1.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <span class="theme-label">跟随系统</span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="preview-intro wrap">
+    <div>
+      <p class="eyebrow">Browser compiler</p>
+      <h1>把 <code>.step</code> 拖进来，<br><span>马上看到成品。</span></h1>
+      <p class="lead">在浏览器里解析并渲染，不需要安装 Python。上传的文件只留在这台设备上，不会发送到服务器。</p>
+    </div>
+    <ul class="preview-points" aria-label="预览功能">
+      <li><strong>即时编译</strong><span>修改文本后自动刷新预览</span></li>
+      <li><strong>完整交互</strong><span>分支、进度、主题和打印都能用</span></li>
+      <li><strong>本地处理</strong><span>文件不离开浏览器</span></li>
+    </ul>
+  </section>
+
+  <section class="preview-workspace wrap" aria-label="在线预览工作区">
+    <div class="preview-bar">
+      <div class="preview-bar-group">
+        <span class="preview-bar-label">载入示例</span>
+        <button class="sample-btn" type="button" data-sample="repair-computer.step">电脑排查</button>
+        <button class="sample-btn" type="button" data-sample="reinstall-windows.step">重装 Windows</button>
+      </div>
+      <div class="preview-bar-group">
+        <button class="btn preview-reset" id="reset-sample" type="button">恢复示例</button>
+        <label class="btn primary file-btn">
+          打开 .step
+          <input id="file-input" type="file" accept=".step,text/plain">
+        </label>
+      </div>
+    </div>
+
+    <div class="preview-grid">
+      <section class="preview-panel editor-panel" aria-labelledby="source-title">
+        <div class="panel-head">
+          <span class="panel-title" id="source-title">源文件 <code id="file-name">repair-computer.step</code></span>
+          <span class="status" id="compile-status" data-state="busy" aria-live="polite">正在加载</span>
+        </div>
+        <div class="editor-wrap" id="drop-zone">
+          <textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" aria-label=".step 源文件内容"></textarea>
+          <div class="drop-overlay" id="drop-overlay" aria-hidden="true">
+            <span>松开以载入 .step 文件</span>
+          </div>
+        </div>
+        <div class="diagnostics" id="diagnostics" role="status" hidden></div>
+        <div class="editor-foot">
+          <span class="preview-stats" id="preview-stats">等待载入</span>
+          <div class="editor-actions">
+            <button class="btn preview-action" id="open-tab" type="button" disabled>新标签页</button>
+            <button class="btn primary preview-action" id="download" type="button" disabled>下载 HTML</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="preview-panel result-panel" aria-labelledby="result-title">
+        <div class="panel-head">
+          <span class="panel-title" id="result-title">实时预览</span>
+          <div class="view-switch" role="group" aria-label="预览宽度">
+            <button class="view-btn active" type="button" data-view="desktop" aria-pressed="true">桌面</button>
+            <button class="view-btn" type="button" data-view="mobile" aria-pressed="false">手机</button>
+          </div>
+        </div>
+        <div class="frame-wrap" id="frame-wrap" data-view="desktop">
+          <iframe id="preview" title="生成的指南预览" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-modals"></iframe>
+          <div class="preview-placeholder" id="placeholder">
+            <span class="spinner" aria-hidden="true"></span>
+            <p>正在准备预览…</p>
+          </div>
+          <div class="preview-error" id="preview-error" hidden>
+            <strong>暂时无法生成预览</strong>
+            <pre id="preview-error-text"></pre>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <p class="preview-privacy">文件只在本页内存中读取和编译。生成的 HTML 会内嵌样式与交互脚本，图片仍使用相对路径。</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <span>step-language · 浏览器内编译 · 无外部依赖</span>
+    <div class="footer-links">
+      <a href="../">介绍页</a>
+      <a href="https://github.com/Geno1024-AIGC/step-language">GitHub</a>
+      <a href="https://github.com/Geno1024-AIGC/step-language/blob/master/README.zh-CN.md">中文 README</a>
+      <span data-year>2026</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+<script src="compiler.js"></script>
+<script src="preview.js"></script>
+</body>
+</html>
