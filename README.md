@@ -15,6 +15,8 @@ open on a slow connection.
 The compiler uses only the Python standard library. The generated page uses vanilla CSS and
 JavaScript.
 
+> This project, including the compiler, runtime, documentation, and examples, is 100% AI-generated.
+
 ## Features
 
 - **Branching flows** — ask a question with `?`, route answers with `* choice -> step`, and end
@@ -99,6 +101,13 @@ Record the model, symptoms, and steps already tried.
 Run `python3 -m steplang guide` for the full quick reference, or open the
 [interactive example](https://geno1024-aigc.github.io/step-language/example/).
 
+## Examples
+
+- [Repair a PC that will not start](https://geno1024-aigc.github.io/step-language/example/)
+- [Reinstall Windows](https://geno1024-aigc.github.io/step-language/reinstall-windows/)
+
+Both pages are generated from the `.step` files in `examples/`.
+
 ## Syntax overview
 
 | Construct | Syntax |
@@ -127,11 +136,12 @@ Duplicate step IDs, unknown jump targets, and unsafe URLs are always errors.
 
 ## GitHub Pages
 
-The `Deploy Pages` workflow in `.github/workflows/pages.yml` runs the test suite, builds the
-example, copies the landing page from `web/`, and deploys `_site/` with GitHub Actions.
+The `Deploy Pages` workflow in `.github/workflows/pages.yml` runs the test suite, builds both
+examples, copies the landing page from `web/`, and deploys `_site/` with GitHub Actions.
 
 - Landing page: <https://geno1024-aigc.github.io/step-language/>
-- Example: <https://geno1024-aigc.github.io/step-language/example/>
+- PC repair example: <https://geno1024-aigc.github.io/step-language/example/>
+- Windows reinstall example: <https://geno1024-aigc.github.io/step-language/reinstall-windows/>
 
 For a fork, set **Settings → Pages → Build and deployment → Source** to **GitHub Actions** once,
 then push to `master`.

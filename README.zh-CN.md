@@ -12,6 +12,8 @@
 
 编译器只使用 Python 标准库；生成的页面只使用原生 CSS 和 JavaScript。
 
+> 本项目的代码、运行时、文档和示例 100% 由 AI 生成。
+
 ## 功能
 
 - **分支流程** — 用 `?` 提问，用 `* 选项 -> 步骤` 把不同答案带到不同步骤，用 `done` 结束。
@@ -91,6 +93,13 @@ steplang guide
 运行 `python3 -m steplang guide` 查看完整速查表，或直接打开
 [交互示例](https://geno1024-aigc.github.io/step-language/example/)。
 
+## 示例
+
+- [电脑无法开机排查](https://geno1024-aigc.github.io/step-language/example/)
+- [重装 Windows 系统](https://geno1024-aigc.github.io/step-language/reinstall-windows/)
+
+两个页面都由 `examples/` 中的 `.step` 文件生成。
+
 ## 语法速览
 
 | 结构 | 写法 |
@@ -119,11 +128,12 @@ steplang guide
 
 ## GitHub Pages
 
-`.github/workflows/pages.yml` 中的 `Deploy Pages` 工作流会运行测试、构建示例、复制 `web/`
-中的介绍页，并通过 GitHub Actions 部署 `_site/`。
+`.github/workflows/pages.yml` 中的 `Deploy Pages` 工作流会运行测试、构建两个示例、复制
+`web/` 中的介绍页，并通过 GitHub Actions 部署 `_site/`。
 
 - 介绍页：<https://geno1024-aigc.github.io/step-language/>
-- 示例：<https://geno1024-aigc.github.io/step-language/example/>
+- 电脑排查示例：<https://geno1024-aigc.github.io/step-language/example/>
+- 重装 Windows 示例：<https://geno1024-aigc.github.io/step-language/reinstall-windows/>
 
 如果 fork 了本项目，需要在 **Settings → Pages → Build and deployment → Source** 中选择一次
 **GitHub Actions**，然后推送到 `master`。
