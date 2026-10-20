@@ -6,3 +6,5 @@ build/
 dist/
 examples/*.html
 .DS_Store
+
+_site/
