@@ -3,6 +3,7 @@
 把纯文本流程，编译成一个手机能用、离线也能看的交互式指南。
 
 [在线介绍页](https://geno1024-aigc.github.io/step-language/) ·
+[在线预览](https://geno1024-aigc.github.io/step-language/preview/) ·
 [交互示例](https://geno1024-aigc.github.io/step-language/examples/repair-computer/) ·
 [English](README.md)
 
@@ -93,6 +94,17 @@ steplang guide
 运行 `python3 -m steplang guide` 查看完整速查表，或直接打开
 [交互示例](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)。
 
+## 浏览器在线预览
+
+不想安装 Python 时，可以直接打开
+[在线预览](https://geno1024-aigc.github.io/step-language/preview/)。拖入或选择一个 `.step`
+文件，浏览器会即时解析并生成完整页面，支持分支、勾选进度、主题和打印。文件只在本地内存中
+读取，不会上传到服务器。
+
+浏览器编译器位于 `web/preview/compiler.js`，其解析结果由
+`web/preview/test_compiler.js` 与 Python 编译器逐项对照。预览页还支持载入示例、编辑源码和
+下载生成的 HTML。
+
 ## 示例
 
 - [电脑无法开机排查](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)
@@ -132,6 +144,7 @@ steplang guide
 `web/` 中的介绍页，并通过 GitHub Actions 部署 `_site/`。
 
 - 介绍页：<https://geno1024-aigc.github.io/step-language/>
+- 在线预览：<https://geno1024-aigc.github.io/step-language/preview/>
 - 电脑排查示例：<https://geno1024-aigc.github.io/step-language/examples/repair-computer/>
 - 重装 Windows 示例：<https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/>
 
@@ -143,6 +156,7 @@ steplang guide
 ```bash
 python3 -m unittest discover -s tests -t .
 node --check steplang/assets/app.js   # 可选，安装 Node.js 时
+node web/preview/test_compiler.js     # 对照浏览器编译器与 Python 解析结果
 ```
 
 ## 目录
@@ -151,7 +165,7 @@ node --check steplang/assets/app.js   # 可选，安装 Node.js 时
 steplang/              编译器包
 steplang/assets/       生成页面的 CSS 和 JavaScript
 examples/              示例流程与图片
-web/                   GitHub Pages 介绍页源码
+web/                   GitHub Pages 介绍页与浏览器预览源码
 tests/                 unittest 测试
 .github/workflows/     Pages 部署工作流
 ```

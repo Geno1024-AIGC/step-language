@@ -3,6 +3,7 @@
 Turn a plain-text procedure into a small, interactive guide that works on a phone and offline.
 
 [Live site](https://geno1024-aigc.github.io/step-language/) ·
+[Browser preview](https://geno1024-aigc.github.io/step-language/preview/) ·
 [Interactive example](https://geno1024-aigc.github.io/step-language/examples/repair-computer/) ·
 [中文说明](README.zh-CN.md)
 
@@ -101,6 +102,17 @@ Record the model, symptoms, and steps already tried.
 Run `python3 -m steplang guide` for the full quick reference, or open the
 [interactive example](https://geno1024-aigc.github.io/step-language/examples/repair-computer/).
 
+## Browser preview
+
+If you do not want to install Python, open the
+[browser preview](https://geno1024-aigc.github.io/step-language/preview/). Drop in or select a
+`.step` file and the browser parses it into a complete page with branching, checklist progress,
+themes, and printing. Files stay in local memory and are never uploaded.
+
+The browser compiler lives in `web/preview/compiler.js`. Its output is compared field by field
+against the Python compiler by `web/preview/test_compiler.js`. The preview page can also load the
+bundled examples, edit source, and download the generated HTML.
+
 ## Examples
 
 - [Repair a PC that will not start](https://geno1024-aigc.github.io/step-language/examples/repair-computer/)
@@ -140,6 +152,7 @@ The `Deploy Pages` workflow in `.github/workflows/pages.yml` runs the test suite
 examples, copies the landing page from `web/`, and deploys `_site/` with GitHub Actions.
 
 - Landing page: <https://geno1024-aigc.github.io/step-language/>
+- Browser preview: <https://geno1024-aigc.github.io/step-language/preview/>
 - PC repair example: <https://geno1024-aigc.github.io/step-language/examples/repair-computer/>
 - Windows reinstall example: <https://geno1024-aigc.github.io/step-language/examples/reinstall-windows/>
 
@@ -151,6 +164,7 @@ then push to `master`.
 ```bash
 python3 -m unittest discover -s tests -t .
 node --check steplang/assets/app.js   # optional, if Node.js is available
+node web/preview/test_compiler.js     # compare the browser and Python parsers
 ```
 
 ## Layout
@@ -159,7 +173,7 @@ node --check steplang/assets/app.js   # optional, if Node.js is available
 steplang/              compiler package
 steplang/assets/       generated-page CSS and JavaScript
 examples/              sample workflow and image
-web/                   GitHub Pages landing page source
+web/                   GitHub Pages landing page and browser preview source
 tests/                 unittest suite
 .github/workflows/     Pages deployment workflow
 ```
